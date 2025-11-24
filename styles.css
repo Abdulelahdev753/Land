@@ -1,0 +1,980 @@
+/* ===================================
+   Travel Guide Collection - Main Styles
+   Browser Support: Chrome, Firefox, Safari, Mobile
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Smooth scrolling for better UX with fixed header */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Alexandria', sans-serif;
+    background: #ffffff;
+    background: -webkit-linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    background: -moz-linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    background: -o-linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    color: #000000;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* ===================================
+   Header Section
+   =================================== */
+
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 2rem 0;
+    text-align: center;
+    -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                     opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                   opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                   box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Header hidden state - fades out and slides up when scrolling down */
+header.header-hidden {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+    opacity: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Header visible state - enhanced shadow when scrolled */
+header.header-scrolled {
+    -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: -moz-linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    -webkit-animation: shine 3s infinite;
+    -moz-animation: shine 3s infinite;
+    -o-animation: shine 3s infinite;
+    animation: shine 3s infinite;
+}
+
+@-webkit-keyframes shine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@-moz-keyframes shine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    -webkit-animation: fadeInDown 1s ease;
+    -moz-animation: fadeInDown 1s ease;
+    -o-animation: fadeInDown 1s ease;
+    animation: fadeInDown 1s ease;
+    -webkit-transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+    -webkit-animation: fadeInUp 1s ease;
+    -moz-animation: fadeInUp 1s ease;
+    -o-animation: fadeInUp 1s ease;
+    animation: fadeInUp 1s ease;
+    -webkit-transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: font-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-moz-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -moz-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-30px);
+        -moz-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -o-transform: translateY(-30px);
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-moz-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -moz-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   Main Container
+   =================================== */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    /* Add top padding to account for fixed header */
+    padding-top: 180px; /* Adjusted for header height + breathing room */
+}
+
+/* ===================================
+   Intro Section
+   =================================== */
+
+.intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    -webkit-animation: fadeIn 1.5s ease;
+    -moz-animation: fadeIn 1.5s ease;
+    -o-animation: fadeIn 1.5s ease;
+    animation: fadeIn 1.5s ease;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #333333;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ===================================
+   Winter Badge
+   =================================== */
+
+.winter-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* ===================================
+   Snowfall Container
+   =================================== */
+
+#snowfall-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/* ===================================
+   Destinations Grid (New Design)
+   =================================== */
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   Destination Card Styling (Winter Edition)
+   =================================== */
+
+.destination-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards;
+}
+
+.destination-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Discount Badge */
+.card-discount-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+/* Card Image with Background */
+.card-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Images for Each Destination */
+.barcelona-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                      url('https://images.unsplash.com/photo-1562883676-8c7feb83f09b?q=80&w=1200');
+}
+
+.italy-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                      url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1200');
+}
+
+.london-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                      url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200');
+}
+
+.amsterdam-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                      url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?q=80&w=1200');
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+}
+
+/* Card Content Section */
+.card-content {
+    padding: 2rem;
+}
+
+.card-header-new {
+    margin-bottom: 1rem;
+}
+
+.destination-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.trip-duration {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Card Description */
+.card-description-new {
+    margin: 1.5rem 0;
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Feature Icons */
+.card-features-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    cursor: help;
+    transition: transform 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Pricing Section */
+.card-pricing {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.original-price {
+    font-size: 1rem;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.discounted-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f5576c;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.season-badge {
+    font-size: 0.75rem;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+/* CTA Button */
+.cta-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Animation Delays */
+.destination-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.destination-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.destination-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.destination-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@-webkit-keyframes slideUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-moz-keyframes slideUp {
+    from {
+        opacity: 0;
+        -moz-transform: translateY(50px);
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        -moz-transform: translateY(50px);
+        -ms-transform: translateY(50px);
+        -o-transform: translateY(50px);
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+    background: -moz-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+    -webkit-transition: left 0.6s ease;
+    -moz-transition: left 0.6s ease;
+    -o-transition: left 0.6s ease;
+    transition: left 0.6s ease;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-color: #333333;
+}
+
+/* Touch device optimization */
+@media (hover: none) and (pointer: coarse) {
+    .card:active {
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+        transform: translateY(-10px);
+        -webkit-box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.card-header {
+    background: #000000;
+    color: #ffffff;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.card-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    opacity: 0.2;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #333333;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* ===================================
+   Card Features List
+   =================================== */
+
+.card-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.card-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: #000000;
+    font-size: 0.95rem;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.card-features li:hover {
+    padding-right: 10px;
+    color: #333333;
+}
+
+.card-features li::before {
+    content: '▪';
+    margin-left: 0.5rem;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* ===================================
+   Card Statistics
+   =================================== */
+
+.card-stats {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f5f5f5;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #666666;
+    margin-top: 0.25rem;
+}
+
+/* ===================================
+   Card Button
+   =================================== */
+
+.card-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid #000000;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.card-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #ffffff;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: width 0.6s ease, height 0.6s ease;
+    -moz-transition: width 0.6s ease, height 0.6s ease;
+    -o-transition: width 0.6s ease, height 0.6s ease;
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.card-button:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.card-button:hover {
+    color: #000000;
+}
+
+/* Touch device button feedback */
+@media (hover: none) and (pointer: coarse) {
+    .card-button:active::before {
+        width: 400px;
+        height: 400px;
+    }
+
+    .card-button:active {
+        color: #000000;
+    }
+}
+
+.card-button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   Footer
+   =================================== */
+
+footer {
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* ===================================
+   Decorative Elements
+   =================================== */
+
+.decorative-line {
+    width: 100px;
+    height: 3px;
+    background: #000000;
+    margin: 2rem auto;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .intro h2 {
+        font-size: 1.8rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    .winter-badge {
+        font-size: 0.9rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .destination-card {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    .card-image {
+        height: 200px;
+    }
+
+    .destination-name {
+        font-size: 1.5rem;
+    }
+
+    .discounted-price {
+        font-size: 1.7rem;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+        padding-top: 160px;
+    }
+
+    /* Touch-friendly spacing for mobile */
+    .card-features-icons {
+        gap: 1.5rem;
+        justify-content: space-around;
+    }
+
+    .feature-icon {
+        font-size: 1.8rem;
+    }
+}
+
+/* Additional mobile breakpoint for very small screens */
+@media (max-width: 480px) {
+    header {
+        padding: 1.2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+        /* Increased padding for smaller screens to ensure no overlap */
+        padding-top: 150px;
+    }
+
+    .intro h2 {
+        font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===================================
+   Safari iOS Specific Fixes
+   =================================== */
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        /* iOS Safari specific */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-button {
+        cursor: pointer;
+    }
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+
+@media print {
+    header::before,
+    .card::before,
+    .card-button::before {
+        display: none;
+    }
+
+    .card {
+        page-break-inside: avoid;
+    }
+}
